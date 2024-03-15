@@ -71,7 +71,7 @@
                       <td>{{ $member->member_name }}</td>
                       <td>{{ $member->sex }}</td>
                       <td>{{ $member->age }}</td>
-                      <td><img src="{{ $member->member_photo }}" alt=""></td>
+                      <td><img src="/upload/member/{{$member->member_photo}}" alt="" width='100'></td>
                       <td>{{ $member->marital_status }}</td>
                       <td>{{ $member->date_of_birth }}</td>
                       <td>{{ $member->country }}</td>

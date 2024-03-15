@@ -35,8 +35,7 @@ Route::get('/', function () {
 Auth::routes();
 
 // Route::get('/admin/dashboard', [HomeController::class, 'index'])->name('home');
-Route::get('/home', [DashboardController::class, 'index'])->name('home');
-// Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Route::get('/member', [MemberController::class, 'index'])->name('member');
   
 // Route::group(['middleware' => ['auth','verified']], function(){
