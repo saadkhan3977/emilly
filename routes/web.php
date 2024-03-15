@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\RoleController;
+use App\Http\Controllers\Backend\MemberController;
   
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,8 @@ Auth::routes();
 
 // Route::get('/admin/dashboard', [HomeController::class, 'index'])->name('home');
 Route::get('/home', [DashboardController::class, 'index'])->name('home');
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::get('/member', [MemberController::class, 'index'])->name('member');
   
 // Route::group(['middleware' => ['auth','verified']], function(){
 // Route::group(['middleware' => ['role:admin'], 'prefix' => 'admin'], function () {
@@ -42,7 +45,9 @@ Route::get('/home', [DashboardController::class, 'index'])->name('home');
 Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
 
     Route::get('dashboard', [DashboardController::class,'index']);
+    Route::get('logout', [DashboardController::class,'logout']);
     Route::resource('roles', RoleController::class);
+    Route::resource('members', MemberController::class);
 
 });
 
