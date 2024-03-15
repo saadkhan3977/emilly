@@ -88,6 +88,12 @@ class MemberController extends Controller
         if ($validator->fails()) {
            return redirect()->back()->withErrors($validator)->withInput();
        }
+   
+       if ($request->hasFile('member_photo')) {
+           $memberphoto = time().'.'.$request->member_photo->extension();
+           $request->member_photo->move(public_path('/upload/memberPhoto'), $memberphoto);
+       }
+
        $member = Member::find($id);
    
        $memberphoto = $member->member_photo;
@@ -118,9 +124,7 @@ class MemberController extends Controller
 
     public function destroy($id){
         $member = Member::find($id);
-        
         File::delete(public_path('/upload/member/').$member->member_photo);
-            
         $member->delete();
         return redirect()->back()->with('success','Member Deleted successfully');
     }

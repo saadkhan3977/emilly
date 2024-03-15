@@ -2,7 +2,6 @@
 
 
 @section('content')
-
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -59,7 +58,7 @@
 
                         <div class="form-group">
                             <label for="marital_status">Marital status:</label>
-                            <select name="marital_status" value="{{$members->marital_status}}" id="marital_status" class="form-control" required>
+                            <select name="marital_status" id="marital_status" class="form-control" required>
                                 <option value="">Select Marital Status</option> <!-- Default option -->
                                 <option value="single" {{( $members->marital_status == 'single') ? 'selected' : null}}>Single</option>
                                 <option value="married" {{( $members->marital_status == 'married') ? 'selected' : null}}>Married</option>

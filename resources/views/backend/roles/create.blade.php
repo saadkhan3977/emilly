@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 @section('content')
-saad
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
