@@ -2,9 +2,7 @@
 
 
 @section('content')
-<div class="main-panel">
-        <div class="content-wrapper">
-          <div class="row">
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -42,31 +40,31 @@
 
                             <div class="form-group">
                             <label for="sex">Sex:</label>
-                            <select name="sex" id="sex" value="{{$members->sex}}" class="form-control" required>
+                            <select name="sex" id="sex"  class="form-control" required>
                                 <option value="">Select Sex</option> <!-- Default option -->
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
+                                <option value="male" {{( $members->sex == 'male') ? 'selected' : null}}>Male</option>
+                                <option value="female"{{( $members->sex == 'female') ? 'selected' : null}}>Female</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                                 <strong>Age:</strong>
-                                <input type='number' value="{{$members->number}}" name="age" placeholder="Age" class="form-control" required>
+                                <input type='number' value="{{$members->age}}" name="age" placeholder="Age" class="form-control" required>
                             </div>
 
                             <div class="form-group">
                                 <strong>Member Photo:</strong>
-                                <input type='file' value="{{$members->member_photo}}" name="member_photo" placeholder="Member Photo" class="form-control" required>
+                                <input type='file' value="{{$members->member_photo}}" name="member_photo" placeholder="Member Photo" class="form-control">
                             </div>
 
                         <div class="form-group">
                             <label for="marital_status">Marital status:</label>
                             <select name="marital_status" value="{{$members->marital_status}}" id="marital_status" class="form-control" required>
                                 <option value="">Select Marital Status</option> <!-- Default option -->
-                                <option value="single">Single</option>
-                                <option value="married">Married</option>
-                                <option value="divorced">Divorced</option>
-                                <option value="widowed">Widowed</option>
+                                <option value="single" {{( $members->marital_status == 'single') ? 'selected' : null}}>Single</option>
+                                <option value="married" {{( $members->marital_status == 'married') ? 'selected' : null}}>Married</option>
+                                <option value="divorced" {{( $members->marital_status == 'divorced') ? 'selected' : null}}>Divorced</option>
+                                <option value="widowed" {{( $members->marital_status == 'widowed') ? 'selected' : null}}>Widowed</option>
                             </select>
                         </div>
 

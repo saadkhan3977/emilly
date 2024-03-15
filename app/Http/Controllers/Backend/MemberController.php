@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use App\Models\Member;
+use File;
 
 class MemberController extends Controller
 {
@@ -42,7 +43,7 @@ class MemberController extends Controller
         
             if ($request->hasFile('member_photo')) {
                 $memberphoto = time().'.'.$request->member_photo->extension();
-                $request->member_photo->move(public_path('/upload/memberPhoto'), $memberphoto);
+                $request->member_photo->move(public_path('/upload/member'), $memberphoto);
             }
 
             Member::create([
@@ -74,7 +75,7 @@ class MemberController extends Controller
             'member_name' => 'required',
             'sex' => 'required',
             'age' => 'required',
-            'member_photo' => 'required|mimes:png,jpg,jpeg',
+            'member_photo' => 'mimes:png,jpg,jpeg',
             'marital_status' => 'required',
             'date_of_birth' => 'required',
             'country' => 'required',
@@ -87,15 +88,15 @@ class MemberController extends Controller
         if ($validator->fails()) {
            return redirect()->back()->withErrors($validator)->withInput();
        }
+       $member = Member::find($id);
    
-       $memberphoto = null;
+       $memberphoto = $member->member_photo;
    
        if ($request->hasFile('member_photo')) {
            $memberphoto = time().'.'.$request->member_photo->extension();
-           $request->member_photo->move(public_path('/upload/memberPhoto'), $memberphoto);
+           $request->member_photo->move(public_path('/upload/member/'), $memberphoto);
        }
 
-       $member = Member::find($id);
        $member->update([
         'member_name' => request()->input('member_name'),
         'sex' => request()->input('sex'),
@@ -117,6 +118,9 @@ class MemberController extends Controller
 
     public function destroy($id){
         $member = Member::find($id);
+        
+        File::delete(public_path('/upload/member/').$member->member_photo);
+            
         $member->delete();
         return redirect()->back()->with('success','Member Deleted successfully');
     }
