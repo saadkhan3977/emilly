@@ -11,7 +11,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\AnnouncmentController;
 use App\Http\Controllers\Backend\RoleController;
+use App\Http\Controllers\Backend\PermissionController;
 use App\Http\Controllers\Backend\MemberController;
   
 /*
@@ -45,7 +47,9 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
 
     Route::get('dashboard', [DashboardController::class,'index']);
     Route::get('logout', [DashboardController::class,'logout']);
+    Route::resource('announcment', AnnouncmentController::class);
     Route::resource('roles', RoleController::class);
+    Route::resource('permission', PermissionController::class);
     Route::resource('members', MemberController::class);
 
 });
