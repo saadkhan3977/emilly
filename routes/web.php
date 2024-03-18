@@ -15,6 +15,7 @@ use App\Http\Controllers\Backend\AnnouncmentController;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\PermissionController;
 use App\Http\Controllers\Backend\MemberController;
+use App\Http\Controllers\Backend\BranchController;
   
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
     Route::resource('roles', RoleController::class);
     Route::resource('permission', PermissionController::class);
     Route::resource('members', MemberController::class);
+    Route::resource('branches', BranchController::class);
 
 });
 
