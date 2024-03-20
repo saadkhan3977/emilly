@@ -9,17 +9,22 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Branch</h1>
+            <h1>Announcement</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Branch</li>
+              <li class="breadcrumb-item active">Announcement</li>
             </ol>
           </div>
         </div>
       </div>
     </section>
+
+    @if(Session::has('error'))
+  <p class="alert alert-info">{{ Session::get('error') }}</p>
+  @endif
+
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
@@ -32,52 +37,58 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Branch List</h3>
+                <h3 class="card-title">Announcement List</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-header">
               @can('branch.create')
                 <!-- <a class="btn btn-success" href="{{ route('branches.create') }}"> Create New branch</a> -->
                 @endcan
-                <a class="btn btn-success" href="{{ route('branches.create') }}"> Create New Branch</a>
+                <a class="btn btn-success" href="{{ route('announcement.create') }}"> Create New Announcement</a>
                 </div>
+             
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>S.No</th>
-                    <th>Name</th>
-                    <th>Country</th>
-                    <th>State</th>
-                    <th>City</th>
-                    <th>Location</th>
-                    <th>Status</th>
+                    
+                    <th>Branch</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Message</th>
                     <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
-                  @if($branches)
+                  @if($announcements)
                   @php
                   $id =1;
                   @endphp
-                  @foreach($branches as $key =>  $branch)
+                  @foreach($announcements as $key =>  $announcement)
                   <tr>
                       <td>{{ $key+1 }}</td>
-                      <td>{{ $branch->name }}</td>
-                      <td>{{ $branch->country }}</td>
-                      <td>{{ $branch->state }}</td>
-                      <td>{{ $branch->city }}</td>
-                      <td>{{ $branch->location }}</td>
-                      <td>{{ $branch->status }}</td>
+                    
+                      <td>{{ $announcement->branches->name }}</td>
+                      <td>{{ $announcement->start_time }}</td>
+                      <td>{{ $announcement->end_time }}</td>
+                      <td>{{ $announcement->start_date }}</td>
+                      <td>{{ $announcement->end_date }}</td>
+                      <td>{{ $announcement->message }}</td>
                     
                       <td>
                       <div class="form-group">
-                       
-                          <a class="btn btn-primary" href="{{route('branches.edit',$branch->id)}}">Edit</a>
+                  
+                     @if($announcement)
+                          <a class="btn btn-primary" href="{{route('announcement.edit',$announcement->id)}}">Edit</a>
+                      @endif
                         </div>
 
-                        <div class="form-group">
-                        <form method='post' action="{{ route('branches.destroy', $branch->id) }}" onsubmit=" return confirm('Are You Sure You Want To Delete This?') ">
+                        <div
+                         class="form-group">
+                        <form method='post' action="{{ route('announcement.destroy', $announcement->id) }}" onsubmit=" return confirm('Are You Sure You Want To Delete This?') ">
                             @csrf
                             @method('DELETE')
                             <button type='submit' class='btn btn-danger'>Delete</button>
@@ -92,12 +103,13 @@
                   <tfoot>
                   <tr>
                   <th>S.No</th>
-                    <th>Name</th>
-                    <th>Country</th>
-                    <th>State</th>
-                    <th>City</th>
-                    <th>Location</th>
-                    <th>Status</th>
+                
+                    <th>Branch</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Message</th>
                     <th>Action</th>
                   </tr>
                   </tfoot>

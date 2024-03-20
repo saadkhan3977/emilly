@@ -5,11 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class branch extends Model
+class Announcement extends Model
 {
     use HasFactory;
-    protected $table = 'branches';
+    protected $table = 'announcement';
     protected $guarded = [];
 
-   
+    public function branches(){
+        return $this->hasOne(Branch::class, 'id' ,'branch_id');
+    }
 }
+
+

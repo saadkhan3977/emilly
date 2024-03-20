@@ -13,8 +13,14 @@
   <link rel="stylesheet" href="/backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/backend/dist/css/adminlte.min.css">
+
+  <!-- toaster -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 </head>
-<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
 
   <!-- Preloader -->
@@ -42,7 +48,7 @@
       <!-- Navbar Search -->
       <li class="nav-item">
         
-        <a href="/admin/announcment" class="text-white"><i class="fa fa-bullhorn "></i> Announcement</a> 
+        <a href="/admin/announcement" class="text-white"><i class="fa fa-bullhorn "></i> Announcement</a> 
         
       </li>
 
@@ -132,7 +138,7 @@
                 @endcan
             </ul>
           </li>
-          
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
@@ -172,14 +178,14 @@
                   <p>List</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="{{route('branches.create')}}" class="nav-link">
+                <li class="nav-item">
+                  <a href="{{route('branches.create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+                  </a>
+                </li>
+              </ul>
+            </li>
        
           <li class="nav-item">
             <a href="/admin/logout" class="nav-link active">
@@ -832,16 +838,17 @@
   		toastr.success("{{ session('success') }}");
   @endif
 
-  @if(Session::has('error'))
-  toastr.options =
-  {
-  	"closeButton" : true,
-  	"progressBar" : true
-  }
-  		toastr.error("{{ session('error') }}");
-  @endif
+
 
 </script>
+
+@if ($errors->any())
+    <script>
+        @foreach ($errors->all() as $error)
+            toastr.error('{{ $error }}');
+        @endforeach
+    </script>
+@endif
 <!-- Bootstrap -->
 <script src="/backend/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- overlayScrollbars -->

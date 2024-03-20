@@ -36,6 +36,11 @@ saad
                             </div>
 
                             <div class="form-group">
+                                <strong>Country:</strong>
+                                <input type='text' name="country" placeholder="Country" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
                                 <strong>State:</strong>
                                 <input type='text' name="state" placeholder="State" class="form-control" required>
                             </div>
@@ -44,6 +49,11 @@ saad
                                 <strong>City:</strong>
                                 <input type='text' name="city" placeholder="City" class="form-control" required>
                             </div>
+
+                            <div class="form-group">
+                                <strong>Location:</strong>
+                                <input type='text' name="location" placeholder="Location" class="form-control" required>
+                            </div>  
                           
                             <div class="form-group">
                             <label for="status">status:</label>
@@ -55,16 +65,10 @@ saad
                             </select>
                         </div>
                            
-                            <div class="form-group">
-                                <strong>Country:</strong>
-                                <input type='text' name="country" placeholder="Country" class="form-control" required>
-                            </div>
+                         
                         
                           
-                            <div class="form-group">
-                                <strong>Location:</strong>
-                                <input type='text' name="location" placeholder="Location" class="form-control" required>
-                            </div>              
+                                      
                         </div>   
                            </div>
                           </div>  
