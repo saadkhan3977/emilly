@@ -52,6 +52,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
     Route::resource('roles', RoleController::class);
     Route::resource('permission', PermissionController::class);
     Route::resource('members', MemberController::class);
+    Route::resource('users', MemberController::class);
     Route::resource('branches', BranchController::class);
 
 });

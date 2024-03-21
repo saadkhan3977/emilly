@@ -31,8 +31,54 @@ saad
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>Member Name:</strong>
-                                <input type='text' name="member_name" placeholder="Member Name" class="form-control" required>
+                                <strong>Name:</strong>
+                                <input type='text' name="name" placeholder="Name" class="form-control" required>
+                              </div>
+                              <div class="form-group">
+                                <strong>Email:</strong>
+                                <input type='email' name="email" placeholder="Email" class="form-control" required>
+                              </div>
+                              <div class="form-group">
+                                <strong>password:</strong>
+                                <input type='password' name="password" placeholder="password" class="form-control" required>
+                              </div>
+                              <div class="form-group">
+                                <strong>Phone:</strong>
+                                <input type='phone' name="phone" placeholder="Phone" class="form-control" required>
+                              </div>
+                              <div class="form-group">
+                                <strong>Image:</strong>
+                                <input type='file' name="image" placeholder="Image" class="form-control" required>
+                              </div>
+                              <div class="form-group">
+                                <strong>Age:</strong>
+                                <input type='number' name="age" placeholder="Age" class="form-control" required>
+                              </div>
+                            <div class="form-group">
+                              <label for="marital_status">Marital status:</label>
+                              <select name="marital_status" id="marital_status" class="form-control" required>
+                                <option value="">Select Marital Status</option> <!-- Default option -->
+                                <option value="single">Single</option>
+                                <option value="married">Married</option>
+                                <option value="divorced">Divorced</option>
+                                <option value="widowed">Widowed</option>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                              <strong>Date of Birth:</strong>
+                              <input type='date' name="date_of_birth" placeholder="Date of Birth" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                              <strong>Country:</strong>
+                              <input type='text' name="country" placeholder="Country" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                              <strong>District:</strong>
+                              <input type='text' name="district" placeholder="District" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                              <strong>Street Details:</strong>
+                              <input type='text' name="street_details" placeholder="Street Details" class="form-control" required>
                             </div>
                             <div class="form-group">
                             <label for="sex">Sex:</label>
@@ -42,49 +88,7 @@ saad
                                 <option value="female">Female</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                                <strong>Age:</strong>
-                                <input type='number' name="age" placeholder="Age" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <strong>Member Photo:</strong>
-                                <input type='file' name="member_photo" placeholder="Member Photo" class="form-control" required>
-                            </div>
-                        <div class="form-group">
-                            <label for="marital_status">Marital status:</label>
-                            <select name="marital_status" id="marital_status" class="form-control" required>
-                                <option value="">Select Marital Status</option> <!-- Default option -->
-                                <option value="single">Single</option>
-                                <option value="married">Married</option>
-                                <option value="divorced">Divorced</option>
-                                <option value="widowed">Widowed</option>
-                            </select>
-                        </div>
-                            <div class="form-group">
-                                <strong>Date of Birth:</strong>
-                                <input type='date' name="date_of_birth" placeholder="Date of Birth" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <strong>Country:</strong>
-                                <input type='text' name="country" placeholder="Country" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <strong>District:</strong>
-                                <input type='text' name="district" placeholder="District" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <strong>Street Details:</strong>
-                                <input type='text' name="street_details" placeholder="Street Details" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <strong>Email:</strong>
-                                <input type='email' name="email" placeholder="Email" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <strong>Phone:</strong>
-                                <input type='phone' name="phone" placeholder="Phone" class="form-control" required>
-                            </div>
-                        </div>
+                          </div>
                       
                            </div>
                           </div>  
