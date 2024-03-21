@@ -47,11 +47,11 @@
                   <tr>
                     <th>S.No</th>
                     <th>Name</th>
+                    <th>Country</th>
                     <th>State</th>
                     <th>City</th>
-                    <th>Status</th>
-                    <th>Country</th>
                     <th>Location</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -64,11 +64,11 @@
                   <tr>
                       <td>{{ $key+1 }}</td>
                       <td>{{ $branch->name }}</td>
+                      <td>{{ $branch->country }}</td>
                       <td>{{ $branch->state }}</td>
                       <td>{{ $branch->city }}</td>
-                      <td>{{ $branch->status }}</td>
-                      <td>{{ $branch->country }}</td>
                       <td>{{ $branch->location }}</td>
+                      <td>{{ $branch->status }}</td>
                     
                       <td>
                       <div class="form-group">
@@ -91,13 +91,13 @@
                   </tbody>
                   <tfoot>
                   <tr>
-                    <th>S.No</th>
+                  <th>S.No</th>
                     <th>Name</th>
+                    <th>Country</th>
                     <th>State</th>
                     <th>City</th>
-                    <th>Status</th>
-                    <th>Country</th>
                     <th>Location</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                   </tfoot>

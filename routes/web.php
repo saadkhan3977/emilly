@@ -48,10 +48,11 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
 
     Route::get('dashboard', [DashboardController::class,'index']);
     Route::get('logout', [DashboardController::class,'logout']);
-    Route::resource('announcment', AnnouncmentController::class);
+    Route::resource('announcement', AnnouncmentController::class);
     Route::resource('roles', RoleController::class);
     Route::resource('permission', PermissionController::class);
     Route::resource('members', MemberController::class);
+    Route::resource('users', MemberController::class);
     Route::resource('branches', BranchController::class);
 
 });

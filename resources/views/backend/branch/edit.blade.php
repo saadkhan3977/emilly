@@ -27,7 +27,8 @@
           <div class="col-12">
               <div class="card">
                   <div class="card-header">
-                  <form method="post" action="{{route('branches.update',$branches->id)}}">
+                  @if($branches)
+                  <form method="post" action="{{ route('branches.update', $branches->id) }}">
                     @csrf
                     @method('put')
                     <div class="row">
@@ -35,6 +36,11 @@
                             <div class="form-group">
                                 <strong>Name:</strong>
                                 <input type='text' name="name" value="{{$branches->name}}" placeholder="Name" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <strong>Country:</strong>
+                                <input type='text'  value="{{$branches->country}}" name="country" placeholder="Country" class="form-control" required>
                             </div>
 
                             <div class="form-group">
@@ -47,24 +53,24 @@
                                 <input type='text' value="{{$branches->city}}" name="city" placeholder="City" class="form-control" required>
                             </div>
 
-                            <div class="form-group">
-                                <label for="status">Status:</label>
-                                <select name="status" id="status" class="form-control" required>
-                                    <option value="">Select Status</option> <!-- Default option -->
-                                    <option value="active" {{( $branches->status == 'active') ? 'selected' : null}}>Active</option>
-                                    <option value="unactive" {{( $branches->status == 'unactive') ? 'selected' : null}}>UnActive</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <strong>Country:</strong>
-                                <input type='text'  value="{{$branches->country}}" name="country" placeholder="Country" class="form-control" required>
-                            </div>
 
                             <div class="form-group">
                                 <strong>Location:</strong>
                                 <input type='text' name="location"  value="{{$branches->location}}" placeholder="Location" class="form-control" required>
                             </div>
+
+                            <div class="form-group">
+                                <label for="status">Status:</label>
+                                <select name="status" id="status" class="form-control" required>
+                                    <option value="">Select Status</option> <!-- Default option -->
+                                    <option value="active" {{( $branches->status == 'active') ? 'selected' : null}}>Active</option>
+                                    <option value="unactive" {{( $branches->status == 'unactive') ? 'selected' : null}}>InActive</option>
+                                </select>
+                            </div>
+
+                          
+
+                          
                         </div>
                            </div>
                           </div>  
@@ -74,6 +80,7 @@
                         </div>
                     </div>
                   </form>
+                  @endif
                   </div>
               </div> 
           </div>   

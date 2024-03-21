@@ -9,17 +9,18 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Members</h1>
+            <h1>Announcement</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Members</li>
+              <li class="breadcrumb-item active">Announcement</li>
             </ol>
           </div>
         </div>
       </div>
     </section>
+
     @if(Session::has('error'))
   <p class="alert alert-info">{{ Session::get('error') }}</p>
   @endif
@@ -36,102 +37,79 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Member List</h3>
+                <h3 class="card-title">Announcement List</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-header">
-              @can('member.create')
-                <!-- <a class="btn btn-success" href="{{ route('members.create') }}"> Create New Member</a> -->
+              @can('branch.create')
+                <!-- <a class="btn btn-success" href="{{ route('branches.create') }}"> Create New branch</a> -->
                 @endcan
-                <a class="btn btn-success" href="{{ route('members.create') }}"> Create New Member</a>
+                <a class="btn btn-success" href="{{ route('announcement.create') }}"> Create New Announcement</a>
                 </div>
+             
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>S.No</th>
-                    <th>Name</th>
-                    <th>Email</th>
-
-                 
-                    <th>Phone</th>
-                    <th>Image</th>
-
-                    <th>Age</th>
-                    <th>Marital Status</th>
-                    <th>Date of Birth</th>
-
-                    <th>Country</th>
-                    <th>District</th>
-                    <th>Street Details</th>
-
-                    <th>sex</th>
+                    
+                    <th>Branch</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Message</th>
                     <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
-                  @if($users)
+                  @if($announcements)
                   @php
                   $id =1;
                   @endphp
-                  @foreach($users as $key =>  $user)
+                  @foreach($announcements as $key =>  $announcement)
                   <tr>
                       <td>{{ $key+1 }}</td>
-                      <td>{{ $user->name }}</td>
-                      <td>{{ $user->email }}</td>
-
-                     
-                      <td>{{ $user->phone }}</td>
-                      <td><img src="/upload/member/{{$user->image}}" alt="" width='100'></td>
-
-                      <td>{{ $user->age }}</td>
-                      <td>{{ $user->marital_status }}</td>
-                      <td>{{ $user->date_of_birth }}</td>
-
-                      <td>{{ $user->country }}</td>
-                      <td>{{ $user->district }}</td>
-                      <td>{{ $user->street_details }}</td>
-
-                      <td>{{ $user->sex }}</td>
+                    
+                      <td>{{ $announcement->branches->name }}</td>
+                      <td>{{ $announcement->start_time }}</td>
+                      <td>{{ $announcement->end_time }}</td>
+                      <td>{{ $announcement->start_date }}</td>
+                      <td>{{ $announcement->end_date }}</td>
+                      <td>{{ $announcement->message }}</td>
+                    
                       <td>
                       <div class="form-group">
-                          <a class="btn btn-primary" href="{{route('users.edit',$user->id)}}">Edit</a>
+                  
+                     @if($announcement)
+                          <a class="btn btn-primary" href="{{route('announcement.edit',$announcement->id)}}">Edit</a>
+                      @endif
                         </div>
 
-                        <div class="form-group">
-                        <form method='post' action="{{ route('users.destroy', $user->id) }}" onsubmit=" return confirm('Are You Sure You Want To Delete This?') ">
+                        <div
+                         class="form-group">
+                        <form method='post' action="{{ route('announcement.destroy', $announcement->id) }}" onsubmit=" return confirm('Are You Sure You Want To Delete This?') ">
                             @csrf
                             @method('DELETE')
                             <button type='submit' class='btn btn-danger'>Delete</button>
                         </form>
                       </div>
                       </div>
-                      
                     </td>
-                    
                   </tr>
                   @endforeach
                   @endif
                   </tbody>
                   <tfoot>
                   <tr>
-                    <th>S.No</th>
-                    <th>Name</th>
-                    <th>Email</th>
-
-               
-                    <th>Phone</th>
-                    <th>Image</th>
-
-                    <th>Age</th>
-                    <th>Marital Status</th>
-                    <th>Date of Birth</th>
-
-                    <th>Country</th>
-                    <th>District</th>
-                    <th>Street Details</th>
-
-                    <th>sex</th>
+                  <th>S.No</th>
+                
+                    <th>Branch</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Message</th>
                     <th>Action</th>
                   </tr>
                   </tfoot>
